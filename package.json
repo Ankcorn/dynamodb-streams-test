@@ -1,0 +1,9 @@
+{
+  "dependencies": {},
+  "name": "dynamodb-streams-test",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "Ankcorn <thomasankcorn@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {}
+}
