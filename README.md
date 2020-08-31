@@ -2,7 +2,32 @@
 
 A serverless stack to test out all the possible dynamodb stream lambda events
 
-#### KEYS_ONLY
+## Summary
+
+|                    |     INSERT     |          MODIFY          |     REMOVE     |   |
+|:------------------:|:--------------:|:------------------------:|:--------------:|---|
+| KEYS_ONLY          | Keys           | Keys                     | Keys           |   |
+| NEW_IMAGE          | Keys, NewImage | Keys, NewImage           | Keys           |   |
+| OLD_IMAGE          | Keys           | Keys, OldImage           | Keys, OldImage |   |
+| NEW_AND_OLD_IMAGES | Keys, NewImage | Keys, NewImage, OldImage | Keys, OldImage |   |
+
+And data looks like this:
+
+```yaml
+Records:
+  - eventName: INSERT|MODIFY|REMOVE
+    dynamodb:
+      Keys: {} # always exists
+      NewImage: {} # sometimes exists, see table
+      OldImage: {} # sometimes exists, see table
+      StreamViewType: KEYS_ONLY|NEW_IMAGE|OLD_IMAGE|NEW_AND_OLD_IMAGES
+```
+
+Thanks [@hugosenari](https://github.com/hugosenari) for formatting and summarising the data
+
+## Raw Data
+      
+### KEYS_ONLY
 
 INSERT
 
